@@ -1,4 +1,5 @@
-class Shape{
+class Shape {
+	protected String name;
 	public Shape next;
 	public Shape() {next = null;}
 	public void paint() {
@@ -8,6 +9,7 @@ class Shape{
 		System.out.println("Shape");
 	}
 }
+
 class Line extends Shape {
 	public void draw() { // 메소드 오버라이딩
 		System.out.println("Line");
@@ -20,24 +22,27 @@ class Rect extends Shape {
 	}
 }
 
-class Circle extends Shape {
-	public void draw() { // 메소드 오버라이딩
+class Circle extends Shape{
+	protected String name;
+	@Override
+	public void draw() {
+		name = "Circle";
 		System.out.println("Circle");
+		super.name = "Shape";
+		super.draw();
 	}
-	super.name = "Shape";
-	super.draw();
-	
 }
 
-public class MethodOverridingEx {
-	static void paint(Shape p) {
-		p.draw(); // p가 가리키는 객체 내에 오버라이딩된 draw() 호출. 
-					  // 동적 바인딩
-		
+
+
+class MethodOverridingEx {
+	
+	static void paint(Shape p) 
+	{ 
+		p.draw(); // p가 가리키는 객체 내에 오버라이딩된 draw() 호출. 동적 바인딩
 	}
 
 	public static void main(String[] args) {
-		
 		
 		Line line = new Line();
 		paint(line); 
@@ -63,9 +68,6 @@ public class MethodOverridingEx {
 		while(p != null) {
 			p.draw();
 			p = p.next;
-		}
-	
-		
+		}			
 	}
-
 }
