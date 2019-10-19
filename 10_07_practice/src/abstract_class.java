@@ -19,9 +19,9 @@ class GoodCalc extends Calculator {
 	@Override
 	public double average(int[] a) { // 추상 메소드 구현
 		double sum = 0;
-		for (int i = 0; i <a.length; i++)
-			sum += a[i];
-		return sum/a.length;
+		for (int i = 0; i <a.length; i++) // 길이만큼 반복 돌려
+			sum += a[i];  // 배열 원소들 전부 더하기!
+		return sum/a.length; // 다시 나눠서 평균 구하
 	}
 
 	public static void main(String [] args) {
