@@ -45,6 +45,40 @@ public class abstract_practice{
 		Ret ret = new Ret();
 		
 		ret.draw(Name);
+		
+		GoodCalc calc = new GoodCalc();
+		System.out.println(calc.add(3, 6));
+		System.out.println(calc.subtract(3, 6));
+		System.out.println(calc.average(new int[] {1, 2, 3, 4, 5}));
 	};
 	
 }
+
+//예제 5-7
+
+abstract class Calculator{
+	public abstract int add(int a, int b);
+	public abstract int subtract(int a, int b);
+	public abstract double average(int[] a);
+}
+
+
+class GoodCalc extends Calculator{
+	public int add(int a, int b) {
+		return a+b;
+	}
+	
+	public int subtract(int a, int b) {
+		return a - b;
+	}
+	
+	public double average(int []a) {
+		double sum = 0;
+		for(int i=0; i<a.length; i++) {
+			sum += i;
+		}
+		return sum / a.length;
+	}
+}
+
+
