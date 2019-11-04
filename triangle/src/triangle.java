@@ -1,5 +1,19 @@
 import java.util.Scanner;
 
+interface PhoneInterface { // 인터페이스 선언
+	 final int TIMEOUT = 10000; // 상수 필드 선언
+	 void sendCall(); // 추상 메소드
+	 void receiveCall(); // 추상 메소드
+	 private void hehe() {
+	  System.out.println("hehe"); 
+	 }
+	 default void printLogo() { // default 메소드
+	  System.out.println("** Phone **");
+	  hehe();
+	 }
+	}
+
+
 public class triangle{
 	public static void main(String[] args) {
 		System.out.print("정수를 입력하세요 : ");
